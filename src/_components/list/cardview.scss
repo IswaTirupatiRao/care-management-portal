@@ -1,0 +1,64 @@
+.cust-cand-card {
+  .card-title {
+    font-family: Open Sans, sans-serif !important;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #2f479b;
+    margin-bottom: 8px;
+  }
+
+  .card-details {
+    font-family: Capitana, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #2e2f2f;
+  }
+
+  .card-details-op {
+    font-family: Capitana, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #afaba5;
+    margin-bottom: 12px;
+  }
+  p {
+    margin-bottom: 4px;
+  }
+
+  .card-footer {
+    padding: 0px 0px 20px 0px;
+    border-top: unset;
+  }
+
+  .card-body {
+    padding: 20px 26px;
+  }
+
+  .card-btn-grp {
+    .btn {
+      color: #2f479b !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      font-family: capitana, sans-serif;
+      border: 1px solid;
+    }
+
+    .btn:hover {
+      background-color: #2f479b !important;
+      color: #ffffff !important;
+    }
+  }
+
+}
+.popover-custom .popover-body {
+  padding-top: 10px !important;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+.customercandidatelist {
+  .cust-btn-tabs {
+    .active {
+      background-color: #61d097 !important;
+      color: #ffffff !important;
+    }
+
+    .btn-primary:hover {
+      // background-color: #2f479b;
+      color: #ffffff !important;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 16px;
+      background-color: #2f479b;
+      font-family: capitana, sans-serif;
+    }
+  }
+  .card-col {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+  }
+  .tab-info {
+    color: var(--grey, #979797);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 150%;
+    img {
+      float: left;
+      height: 21px;
+      width: 21px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}

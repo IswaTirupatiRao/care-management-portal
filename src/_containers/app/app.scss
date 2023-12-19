@@ -1,0 +1,48 @@
+body {
+  font-family: "capitana", sans-serif !important;
+
+  .app-main .app-main__outer {
+    max-height: calc(100vh - 120px);
+    overflow-x: auto;
+  }
+
+  .app-main .container-row > .row {
+    width: 100%;
+  }
+
+  .app-main .right-align {
+    text-align: right;
+  }
+
+  .app-main .auto-margin {
+    margin: auto;
+  }
+
+  .app-main .center-align {
+    text-align: center;
+  }
+
+  .app-main .center-middle-align {
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-normal {
+    text-transform: none !important;
+    font-weight: normal !important;
+    font-size: 14px;
+  }
+
+  .hand-cursor {
+    cursor: pointer;
+  }
+
+  .sweet-alert {
+    z-index: 999999 !important;
+  }
+
+  .no-padding {
+    padding: 0px;
+  }
+}
