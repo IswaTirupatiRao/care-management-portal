@@ -2,17 +2,14 @@ import React from "react";
 import cx from "classnames";
 import CSSTransitionGroup from "react-transition-group/TransitionGroup";
 import { UserBox } from "./Components/UserBox";
-import logo from "../../../assets/utils/images/panther-logo.png";
+import logo from "../../../assets/utils/images/care.png";
 import smlogo from "../../../assets/utils/sidebarimages/icon.png";
 import { useSelector } from "react-redux";
 import "./appheader.scss";
-import { ChatCounter } from "./Components/chatCounter";
-import { NotificationCounter } from "./Components/notificationCounter";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col } from "reactstrap";
-import sideBarIcons from "assets/utils/sidebarimages";
 
 export function AppHeader({
   headerBackgroundColor = "white",
@@ -81,17 +78,11 @@ export function AppHeader({
                   {userroleid === 1
                     ? "Admin"
                     : userroleid === 2
-                    ? "Customer"
-                    : "Candidate"}
+                    ? "Physician"
+                    : "Care Manager"}
                 </h4>
               </div>
               <div className="app-header-right">
-                {userroleid !== 1 && <ChatCounter />}
-                {userroleid !== 3 ? (
-                  <NotificationCounter></NotificationCounter>
-                ) : (
-                  <></>
-                )}
                 <UserBox />
               </div>
             </>

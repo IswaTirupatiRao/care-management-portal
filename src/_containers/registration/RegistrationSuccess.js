@@ -8,7 +8,7 @@ import { Col, Row, Button } from "reactstrap";
 
 import "./registrationsuccess.scss";
 
-import logo from "../../assets/utils/images/panther-logo.png";
+import logo from "../../assets/utils/images/care.png";
 
 export function RegistrationSuccess() {
   const [sliderSettings] = useState({

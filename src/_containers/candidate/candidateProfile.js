@@ -3,9 +3,7 @@ import { yearActions, monthActions } from "_store";
 import { Row, Col } from "reactstrap";
 import Loader from "react-loaders";
 import { useDispatch } from "react-redux";
-import PageTitle from "../../_components/common/pagetitle";
 import "./profile.scss";
-import candidatelogo from "../../assets/utils/images/candidate.svg";
 import { ResumeDetails } from "./resumeDetails";
 import { CandidateQualification } from "./candidateQualification";
 import { CandidateEducation } from "./educationalInfo";
@@ -204,9 +202,6 @@ export function CandidateProfile() {
 
   return (
     <div className="profile-view">
-      <div className="profile-view">
-        <PageTitle heading="Candidate Profile" icon={candidatelogo} />
-      </div>
       {profileData.personalInfo.email ? (
         <div className="profile-view">
           <Row>
@@ -217,9 +212,7 @@ export function CandidateProfile() {
             />
           </Row>
           <Row>
-
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <ResumeDetails
                 resumeInfo={profileData.resumeInfo}
                 candidateDetails={profileData.personalInfo}
@@ -228,7 +221,6 @@ export function CandidateProfile() {
             </Col>
 
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <CandidateSkills
                 skillInfo={profileData.skillsInfo}
                 popularSkillData={popularSkills}
@@ -237,9 +229,7 @@ export function CandidateProfile() {
             </Col>
           </Row>
           <Row>
-
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <CandidateQualification
                 qualificationInfo={profileData.qualificationsInfo}
                 onCallBack={() => loadPage()}
@@ -247,7 +237,6 @@ export function CandidateProfile() {
             </Col>
 
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <CandidateEducation
                 educationInfo={profileData.educationInfo}
                 onCallBack={() => loadPage()}
@@ -255,9 +244,7 @@ export function CandidateProfile() {
             </Col>
           </Row>
           <Row>
-
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <CertificationDetails
                 certificationsInfo={profileData.certificationsInfo}
                 onCallBack={() => loadPage()}
@@ -265,7 +252,6 @@ export function CandidateProfile() {
             </Col>
 
             <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
-
               <AdditionalInformation onCallBack={() => loadPage()} />
             </Col>
           </Row>

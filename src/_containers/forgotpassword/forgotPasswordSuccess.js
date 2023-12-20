@@ -6,7 +6,7 @@ import { Col, Row, Button } from "reactstrap";
 
 import { history } from "_helpers";
 
-import logo from "../../assets/utils/images/panther-logo.png";
+import logo from "../../assets/utils/images/care.png";
 
 export function ForgotPasswordSuccess() {
   const [sliderSettings] = useState({

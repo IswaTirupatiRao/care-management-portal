@@ -22,7 +22,7 @@ import {
   CardTitle,
 } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
-import logo from "../../assets/utils/images/panther-logo.png";
+import logo from "../../assets/utils/images/care.png";
 import "./forgotpassword.scss";
 import { history } from "_helpers";
 

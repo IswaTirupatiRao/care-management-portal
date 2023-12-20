@@ -23,7 +23,7 @@ import { Col, Row, Button, Form, FormGroup, Label } from "reactstrap";
 import { history } from "_helpers";
 import { authActions } from "_store";
 
-import logo from "../../assets/utils/images/panther-logo.png";
+import logo from "../../assets/utils/images/care.png";
 import loginBgImg from "../../assets/utils/images/login.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./login.scss";

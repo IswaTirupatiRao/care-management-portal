@@ -197,9 +197,9 @@ export function UserBox() {
                                 <div className="widget-heading">
                                   {userDetail?.FirstName} {userDetail?.LastName}
                                 </div>
-                                <div className="widget-subheading opacity-8">
+                                {/* <div className="widget-subheading opacity-8">
                                   {userDetail?.role}
-                                </div>
+                                </div> */}
                               </div>
                               <div className="widget-content-right me-2">
                                 <Button
