@@ -1,9 +1,7 @@
-# panther-web-app
+# Care-management-portal
 
-Codebase for web app
+Codebase for Care Management Portal
 
 # install node package
 
-yarn --legacy-peer-deps
-
-yarn audit fix
+npm install --legacy-peer-deps
