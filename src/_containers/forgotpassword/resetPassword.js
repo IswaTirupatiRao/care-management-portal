@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import loginBgImg from "../../assets/utils/images/login.png";
 
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import logo from "../../assets/utils/images/panther-logo.png";
+import logo from "../../assets/utils/images/care.png";
 import "./forgotpassword.scss";
 import { history } from "_helpers";
 
