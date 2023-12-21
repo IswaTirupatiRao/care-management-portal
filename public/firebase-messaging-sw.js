@@ -4,16 +4,6 @@ importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts(
   "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"
 );
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCwJ9XU5LfjGXkD77q6MwsPkvz5QdLUHKY",
-  authDomain: "panther-test-8cd56.firebaseapp.com",
-  projectId: "panther-test-8cd56",
-  storageBucket: "panther-test-8cd56.appspot.com",
-  messagingSenderId: "275858738478",
-  appId: "1:275858738478:web:b191ac1830f73fb7fe7ebf",
-  measurementId: "G-41FNE7FGNE",
-};
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
