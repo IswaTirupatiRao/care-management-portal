@@ -20,6 +20,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { Row } from "reactstrap";
 import { candidateDashboardActions } from "_store";
 import { useDispatch } from "react-redux";
+import { Faciliy, Master } from "_containers/careManager/master/master";
+import { SearchPatient } from "_containers/careManager/searchPatient";
+import { PatientDemographic } from "_containers/careManager/patientDemographics";
+import { PatientFamilyHistory } from "_containers/careManager/patientFamilyHistory";
 
 export function App() {
   const authUser = useSelector((state) => state.auth.token);
@@ -83,6 +87,38 @@ export function App() {
             element={
               <PrivateRoute>
                 <CandidateSchedules title={"Calendar"} />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/master"
+            element={
+              <PrivateRoute>
+                <Master />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/search_patients"
+            element={
+              <PrivateRoute>
+                <SearchPatient />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/demographics"
+            element={
+              <PrivateRoute>
+                <PatientDemographic />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/patient_and_family_history"
+            element={
+              <PrivateRoute>
+                <PatientFamilyHistory />
               </PrivateRoute>
             }
           />
