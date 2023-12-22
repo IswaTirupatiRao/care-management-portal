@@ -10,10 +10,10 @@ import {
   FormGroup,
 } from "reactstrap";
 import InputMask from "react-input-mask";
-export function PatientDemographic() {
+export function PatientFamilyHistory() {
   return (
     <>
-      <h5 className="ms-1 mb-3">Add New Patient</h5>
+      <h5 className="ms-1 mb-3">Add New Patient & Family History</h5>
       <Card className="mb-2">
         <CardBody>
           <Label className="fw-bold">Basic Information</Label>
