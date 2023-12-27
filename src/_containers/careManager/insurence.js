@@ -393,7 +393,7 @@ export function Insurence() {
         </CardBody>
       </Card>
       <Button className="float-end" color="primary">
-        Save new patient
+        Save Insurence Details
       </Button>
     </>
   );

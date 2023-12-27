@@ -29,6 +29,8 @@ import { Reports } from "_containers/careManager/reports";
 import { Admin } from "_containers/careManager/admin";
 import { Insurence } from "_containers/careManager/insurence";
 import { PatientProfile } from "_containers/careManager/patientProfile ";
+import { AccessControl } from "_containers/careManager/accessControl";
+import { CareCalender } from "_containers/careManager/careCalender";
 
 export function App() {
   const authUser = useSelector((state) => state.auth.token);
@@ -79,19 +81,19 @@ export function App() {
   const renderRoutes = (userroleid) => {
       return (
         <>
-          <Route
+          {/* <Route
             path="/"
             element={
               <PrivateRoute>
                 <CandidateProfile />
               </PrivateRoute>
             }
-          />
+          /> */}
           <Route
             path="/calendar"
             element={
               <PrivateRoute>
-                <CandidateSchedules title={"Calendar"} />
+                <CareCalender />
               </PrivateRoute>
             }
           />
@@ -128,10 +130,10 @@ export function App() {
             }
           />
           <Route
-            path="/diagnosis"
+            path="/access_control"
             element={
               <PrivateRoute>
-                <Diagnosis />
+                <AccessControl />
               </PrivateRoute>
             }
           />
@@ -160,7 +162,7 @@ export function App() {
             }
           />
           <Route
-            path="/other_info"
+            path="/"
             element={
               <PrivateRoute>
                 <PatientProfile />

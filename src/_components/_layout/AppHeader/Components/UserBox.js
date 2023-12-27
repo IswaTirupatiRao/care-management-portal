@@ -197,9 +197,9 @@ export function UserBox() {
                                 <div className="widget-heading">
                                   {userDetail?.FirstName} {userDetail?.LastName}
                                 </div>
-                                {/* <div className="widget-subheading opacity-8">
-                                  {userDetail?.role}
-                                </div> */}
+                                <div className="widget-subheading opacity-8">
+                                  Parraga Esthetic LLC
+                                </div>
                               </div>
                               <div className="widget-content-right me-2">
                                 <Button
@@ -238,21 +238,21 @@ export function UserBox() {
                             <NavItem>
                               <NavLink
                                 href="javascript:void(0)"
-                                onClick={() => [setDeactivateConfirm(true)]}
+                                // onClick={() => [setDeactivateConfirm(true)]}
                               >
-                                Deactivate account
+                                Settings
                               </NavLink>
                             </NavItem>
                           )}
                           <NavItem>
                             <NavLink href="javascript:void(0)">
-                              Notifications
-                              <Switch
+                              MFA Management
+                              {/* <Switch
                                 onChange={() => toggleNotification(!isToggleOn)}
                                 checked={isToggleOn}
                                 className="m-1 ms-auto ml-auto"
                                 id="normal-switch"
-                              />
+                              /> */}
                             </NavLink>
                           </NavItem>
                         </Nav>
@@ -266,7 +266,7 @@ export function UserBox() {
                   {" "}
                   {userDetail.FirstName} {userDetail.LastName}
                 </div>
-                <div className="widget-subheading">{userDetail.role}</div>
+                <div className="widget-subheading">Parraga Esthetic LLC</div>
               </div>
             </div>
           </div>

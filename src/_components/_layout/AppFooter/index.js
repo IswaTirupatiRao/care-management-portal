@@ -30,7 +30,7 @@ export function AppFooter() {
       <div className="app-footer__inner">
         <div className="app-footer-left">
           <div className="footer-dots">
-            &copy; OpenWorx
+            &copy; Care Management Portal
             <div className="dots-separator" />
             <Link
               to={privacyPolicy ? privacyPolicy[0]?.name : ""}
