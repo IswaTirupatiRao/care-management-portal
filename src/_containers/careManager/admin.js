@@ -55,13 +55,13 @@ export function Admin() {
       name: "User name",
       selector: (row) => row.Username,
       sortable: true,
-      width: "30%",
+      width: "20%",
     },
     {
-      name: "Full name",
+      name: "Real Name",
       selector: (row) => row.fullname,
       sortable: true,
-      width: "30%",
+      width: "20%",
     },
     {
       name: "Additional info",
@@ -123,7 +123,7 @@ export function Admin() {
           {/* <Label className="fw-bold">Users</Label> */}
           <div className="divider mt-1" />
           <Row>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Label className="fw-semi-bold">UserName</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
@@ -143,13 +143,19 @@ export function Admin() {
             </Col>
           </Row>
           <Row>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Label className="fw-semi-bold">First Name</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Middle Name</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Label className="fw-semi-bold">Last Name</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
@@ -157,32 +163,125 @@ export function Admin() {
             </Col>
 
           </Row>
-
           <Row>
-            <Col md={12} lg={12}>
-              <Label className="fw-semi-bold">Last name</Label>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">federal Tax ID:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="First name"
-                />
+                <Label className="fw-semi-bold">UPIN:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Taxonomy: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">State License Number: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+
           </Row>
           <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">DEA Number:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">See Authorizations:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">job Descripation: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Supervisor: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">NewCrop eRX Role:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Google Eail for Login:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Patient Menu Role: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Default Facility: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Default Facility:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Main Menu Role:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Provider Type: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Additional Info: </Label>
+                <Input id={"companyName"} name={"companyName"} type={"textarea"} />
+              </FormGroup>
+            </Col>
+
+          </Row>
+
+          <Row>
             <Col md={12} lg={12}>
-              <Label className="fw-semi-bold">Valedictory</Label>
+              <Label className="fw-semi-bold">Facility Permissions</Label>
             </Col>
             <Col md={12} lg={12}>
               <FormGroup>
                 <Input
                   id={"companyName"}
                   name={"companyName"}
-                  type={"text"}
+                  type={"textarea"}
                   placeholder="-- All -- "
                 />
               </FormGroup>
@@ -190,134 +289,32 @@ export function Admin() {
           </Row>
           <Row>
             <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Preferred name</Label>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="Patient preferred name"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Patient ID</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">From : </Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">To : </Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Gender</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Female</option>
-                  <option>Male</option>
-                  <option>Unknown</option>
-                </Input>
-              </FormGroup>
-            </Col>
-
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Problem XD</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Ethnicity</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Hispanic or Lactino</option>
-                  <option>Not Hispanic or Lactino</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold"> Drug</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold"> Immunization</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold"> Option</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold"> Communication</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Ethnicity</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Hispanic or Lactino</option>
-                  <option>Not Hispanic or Lactino</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Race</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Declined to specify</option>
-                  <option>American Indian or Alaska Native</option>
-                  <option>Asian</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Lab Result :</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Family size</Label>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"number"}
-                />
-              </FormGroup>
+            <FormGroup>
+              <Label for="exampleSelect">
+                Access Control:
+              </Label>
+              <Input
+                id="exampleSelect"
+                name="select"
+                type="select"
+              >
+                <option>
+                  Accounting
+                </option>
+                <option>
+                  Administrators 
+                </option>
+                <option>
+                  TUser
+                </option>
+                <option>
+                  Clinician
+                </option>
+                <option>
+                  Physican
+                </option>
+              </Input>
+            </FormGroup>
             </Col>
           </Row>
         </CardBody>
