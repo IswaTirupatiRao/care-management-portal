@@ -24,6 +24,9 @@ import { Faciliy, Master } from "_containers/careManager/master/master";
 import { SearchPatient } from "_containers/careManager/searchPatient";
 import { PatientDemographic } from "_containers/careManager/patientDemographics";
 import { PatientFamilyHistory } from "_containers/careManager/patientFamilyHistory";
+import { Diagnosis } from "_containers/careManager/diagnosis";
+import { Reports } from "_containers/careManager/reports";
+import { Admin } from "_containers/careManager/admin";
 
 export function App() {
   const authUser = useSelector((state) => state.auth.token);
@@ -119,6 +122,31 @@ export function App() {
             element={
               <PrivateRoute>
                 <PatientFamilyHistory />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/diagnosis"
+            element={
+              <PrivateRoute>
+                <Diagnosis />
+              </PrivateRoute>
+            }
+          />
+           <Route
+            path="/reports"
+            element={
+              <PrivateRoute>
+                <Reports />
+              </PrivateRoute>
+            }
+          />
+                    />
+           <Route
+            path="/Admin"
+            element={
+              <PrivateRoute>
+                <Admin />
               </PrivateRoute>
             }
           />
