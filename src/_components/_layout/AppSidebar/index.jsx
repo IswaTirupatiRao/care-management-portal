@@ -14,8 +14,8 @@ export const AppSidebar = (props) => {
   const location = useLocation();
   const [menuItems, setMenuItems] = useState([]);
   let menuDtoList = [
-    {"menuid":10,"menuname":"Profile","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
-    {"menuid":11,"menuname":"Other Info","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/other_info","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
+    // {"menuid":10,"menuname":"Profile","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
+    {"menuid":11,"menuname":"Patient Profile","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":12,"menuname":"Admin","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/admin","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":13,"menuname":"Master","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/master","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[
       // {"submenumenuid":14,"submenuname":"Letters","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/letters","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
@@ -26,7 +26,8 @@ export const AppSidebar = (props) => {
       // {"submenumenuid":24,"submenuname":"Surgeries","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/surgeries","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
       // {"submenumenuid":25,"submenuname":"Dental Issues","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/dental_issues","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
       // {"submenumenuid":26,"submenuname":"Allergies","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/allergies","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
-      {"submenumenuid":34,"submenuname":"Diagnosis","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/diagnosis","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},]},
+      // {"submenumenuid":34,"submenuname":"Diagnosis","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/diagnosis","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
+    ]},
     {"menuid":15,"menuname":"Search Patients ","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/search_patients","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":16,"menuname":"Demographics","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/demographics","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":17,"menuname":"Patient & Family History","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/patient_and_family_history","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
@@ -38,7 +39,7 @@ export const AppSidebar = (props) => {
     // {"menuid":30,"menuname":"Patient Messages","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/patient_messages","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":31,"menuname":"Reports ","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/reports","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     {"menuid":32,"menuname":"Calendar","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/calendar","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
-    // {"menuid":33,"menuname":"Referrals","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/referrals","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
+    {"menuid":33,"menuname":"Access Control","userroleid":3,"rolename":"Candidate","menuicon":"profile","modulename":"","path":"/access_control","isview":null,"isadd":true,"isedit":true,"isdelete":true,"subMenuList":[]},
     
     ]
 

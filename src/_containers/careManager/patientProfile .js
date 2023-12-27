@@ -26,7 +26,9 @@ import {
   BsPencilFill,
   BsPlusCircleFill,
   BsFillQuestionCircleFill,
+  BsDownload,
 } from "react-icons/bs";
+import DatePicker from "react-datepicker";
 import DataTable from "react-data-table-component";
 export function PatientProfile() {
   const [activeTabs, setActiveTabs] = useState("1");
@@ -39,6 +41,12 @@ export function PatientProfile() {
   const [messagesModal, setMessagesModal] = useState(false);
   const [cRemindersModal, setCRemindersModal] = useState(false);
   const [aoppointmentsModal, setAppointmentsModal] = useState(false);
+  const [diagnosisModal, setDiagnosisModal] = useState(false);
+  const [immunizationModal, setImmunizationModal] = useState(false);
+  const [documentModal, setDocumentModal] = useState(false);
+  const [referralModal, setReferralModal] = useState(false);
+  const [counterReferralModal, setCounterReferralModal] = useState(false);
+  const [scheduledDate, setScheduledDate] = useState();
   let messageTypeArray = [
     "Unassigned",
     "Chat Notes",
@@ -69,6 +77,13 @@ export function PatientProfile() {
     "Root Infection",
   ];
   let letterArray = ["Letter 1", "Letter 2", "Letter 3"];
+  let documentArray = ["Document 1", "Document 2", "Document 3"];
+  let immunizationArray = [
+    "Hepatitis B",
+    "Rotavirus (RV)",
+    "Diphtheria, tetanus, & acellular pertussis",
+  ];
+  let prescriptionsArray = ["Amlodipine", "Amitriptyline", "Bunavail"];
   let clinicalRemindersArray = [
     {
       crName: "Assessment - Cancer Screening",
@@ -115,6 +130,14 @@ export function PatientProfile() {
       status: "Not done",
     },
   ];
+  let data2 = [
+    {
+      type: "Referral",
+      date: "2023-12-14",
+      user: "clinician",
+      details: "Cancer Screening",
+    },
+  ];
   const columns = (clickHandler) => [
     {
       name: "From",
@@ -152,6 +175,56 @@ export function PatientProfile() {
       selector: (row) => row.status,
       sortable: true,
       width: "10%",
+    },
+  ];
+  const columns2 = () => [
+    {
+      name: "",
+      cell: (row) => (
+        <>
+          <ButtonGroup>
+            <Button color="primary" size="sm">
+              View/Edit
+            </Button>
+            <Button color="alternate" size="sm">
+              Print
+            </Button>
+            <Button
+              color="warning"
+              size="sm"
+              onClick={() => setCounterReferralModal(!counterReferralModal)}
+            >
+              Counter
+            </Button>
+          </ButtonGroup>
+        </>
+      ),
+      width: "30%",
+    },
+    {
+      name: "Type",
+      id: "jobtitle",
+      selector: (row) => row.type,
+      sortable: true,
+      width: "15%",
+    },
+    {
+      name: "Date",
+      sortable: true,
+      selector: (row) => row.date,
+      width: "15%",
+    },
+    {
+      name: "User",
+      selector: (row) => row.user,
+      sortable: true,
+      width: "15%",
+    },
+    {
+      name: "Details",
+      selector: (row) => row.details,
+      sortable: true,
+      width: "25%",
     },
   ];
   const handleButtonClick = () => {
@@ -231,6 +304,23 @@ export function PatientProfile() {
                     }}
                   >
                     Notes
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="#"
+                    className={classnames({
+                      active: activeTabs === "6",
+                    })}
+                    onClick={() => {
+                      setActiveTabs("6");
+                    }}
+                  >
+                    Documents{"  "}
+                    <BsPlusCircleFill
+                      className="mb-1"
+                      onClick={() => setDocumentModal(!documentModal)}
+                    />
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -675,6 +765,21 @@ export function PatientProfile() {
                     </Col>
                   </Row>
                 </TabPane>
+                <TabPane tabId="6">
+                  {documentArray.map((options) => (
+                    <Row>
+                      <Col md={3} lg={3}>
+                        {options}
+                      </Col>
+                      <Col md={1} lg={1}>
+                        <span className="float-end">
+                          <BsDownload className="me-2" />
+                          <BsFillTrashFill className="me-2" />
+                        </span>
+                      </Col>
+                    </Row>
+                  ))}
+                </TabPane>
               </TabContent>
             </CardBody>
           </Card>
@@ -712,7 +817,10 @@ export function PatientProfile() {
             <CardBody>
               <Label className="fw-bold">Medical Problems</Label>
               <Button size="sm" className="float-end" color="link">
-                <BsPencilFill className="mb-2" />
+                <BsPencilFill
+                  className="mb-2"
+                  onClick={() => setDiagnosisModal(!diagnosisModal)}
+                />
               </Button>
               <div className="divider mt-1" />
               {medicalProblemArray.map((options) => (
@@ -753,22 +861,6 @@ export function PatientProfile() {
                   </Col>
                 </Row>
               ))}
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12} lg={12}>
-          <Card className="mb-2">
-            <CardBody>
-              <Label className="fw-bold">Prescriptions</Label>
-              <Button size="sm" className="float-end" color="link">
-                <BsPencilFill
-                  className="mb-2"
-                  onClick={() => setPrescriptionModal(!prescriptionModal)}
-                />
-              </Button>
-              <div className="divider mt-1" />
             </CardBody>
           </Card>
         </Col>
@@ -827,6 +919,66 @@ export function PatientProfile() {
                   2024-08-02
                 </Col>
               </Row>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col md={8} lg={8}>
+          <Card className="mb-2">
+            <CardBody>
+              <Label className="fw-bold">Prescriptions</Label>
+              <Button size="sm" className="float-end" color="link">
+                <BsPencilFill
+                  className="mb-2"
+                  onClick={() => setPrescriptionModal(!prescriptionModal)}
+                />
+              </Button>
+              <div className="divider mt-1" />
+              {prescriptionsArray.map((options) => (
+                <Row>
+                  <Col md={3} lg={3}>
+                    {options}
+                  </Col>
+                  <Col md={3} lg={3}>
+                    {"2 tablets"}
+                  </Col>
+                  <Col md={3} lg={3}>
+                    {"Daily"}
+                  </Col>
+                  <Col md={3} lg={3}>
+                    <span className="float-end">
+                      <BsFillTrashFill className="me-2" />
+                    </span>
+                  </Col>
+                </Row>
+              ))}
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={4} lg={4}>
+          <Card className="mb-2">
+            <CardBody>
+              <Label className="fw-bold">Immunizations</Label>
+              <Button size="sm" className="float-end" color="link">
+                <BsPencilFill
+                  className="mb-2"
+                  onClick={() => setImmunizationModal(!immunizationModal)}
+                />
+              </Button>
+              <div className="divider mt-1" />
+              {immunizationArray.map((options) => (
+                <Row>
+                  <Col md={9} lg={9}>
+                    {options}
+                  </Col>
+                  <Col md={3} lg={3}>
+                    <span className="float-end">
+                      <BsFillTrashFill className="me-2" />
+                    </span>
+                  </Col>
+                </Row>
+              ))}
             </CardBody>
           </Card>
         </Col>
@@ -985,6 +1137,28 @@ export function PatientProfile() {
           </Card>
         </Col>
       </Row>
+      <Row>
+        <Col md={8} lg={8}>
+          <Card className="mb-2">
+            <CardBody>
+              <Label className="fw-bold">Referrals</Label>
+              <Button size="sm" className="float-end" color="link">
+                <BsPencilFill
+                  className="mb-2"
+                  onClick={() => setReferralModal(!referralModal)}
+                />
+              </Button>
+              <div className="divider mt-1" />
+              <DataTable
+                columns={columns2()}
+                data={data2}
+                persistTableHead
+                pagination
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
       <Modal size="lg" isOpen={letterModal}>
         <ModalHeader toggle={() => setLetterModal(!letterModal)}>
           Letter
@@ -1006,7 +1180,16 @@ export function PatientProfile() {
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">Date</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
@@ -1097,13 +1280,31 @@ export function PatientProfile() {
             <Col md={4} lg={4}>
               <FormGroup>
                 <Label className="fw-semi-bold">Begin Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={4} lg={4}>
               <FormGroup>
                 <Label className="fw-semi-bold">End Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
 
@@ -1227,7 +1428,16 @@ export function PatientProfile() {
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">Starting date</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
@@ -1366,13 +1576,31 @@ export function PatientProfile() {
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">Begin Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">End Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={12} lg={12}>
@@ -1473,13 +1701,31 @@ export function PatientProfile() {
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">Begin Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">End Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={12} lg={12}>
@@ -1586,13 +1832,31 @@ export function PatientProfile() {
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">Begin Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
               <FormGroup>
                 <Label className="fw-semi-bold">End Date & Time</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={6} lg={6}>
@@ -1741,11 +2005,16 @@ export function PatientProfile() {
             <Col md={12} lg={12}>
               <FormGroup>
                 <Label className="fw-semi-bold">Date/Time</Label>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"date"}
-                ></Input>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={12} lg={12}>
@@ -1843,11 +2112,16 @@ export function PatientProfile() {
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"date"}
-                ></Input>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
@@ -1969,6 +2243,691 @@ export function PatientProfile() {
           <Button color="danger">Delete</Button>
           <Button color="secondary">Cancel</Button>
           <Button color="primary">Save</Button>
+        </ModalFooter>
+      </Modal>
+      <Modal size="lg" isOpen={diagnosisModal}>
+        <ModalHeader toggle={() => setDiagnosisModal(!diagnosisModal)}>
+          Add/Edit medical problem
+        </ModalHeader>
+        <ModalBody>
+          <Row>
+            <Col md={12} lg={12}>
+              <Label className="fw-semi-bold">Type : Problem</Label>
+              <Row>
+                <Col md={6} lg={6}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">
+                      Select from list or type your own in Title
+                    </Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6} lg={6}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Title:</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6} lg={6}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Begin Date and Time</Label>
+                    <DatePicker
+                      className="form-control"
+                      selected={scheduledDate}
+                      onChange={(date) => {
+                        setScheduledDate(date);
+                      }}
+                      dateFormat="MM/dd/yyyy"
+                      placeholderText="Eg. mm/dd/yyyy"
+                      name={"scheduleDate"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6} lg={6}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">End Date and Time</Label>
+                    <DatePicker
+                      className="form-control"
+                      selected={scheduledDate}
+                      onChange={(date) => {
+                        setScheduledDate(date);
+                      }}
+                      dateFormat="MM/dd/yyyy"
+                      placeholderText="Eg. mm/dd/yyyy"
+                      name={"scheduleDate"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={12} lg={12}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Comment </Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"textarea"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={9} lg={9}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Coding </Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"textarea"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Occurence</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"select"}
+                    >
+                      <option>N/A</option>
+                      <option>Unknown</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Outcome</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"select"}
+                    >
+                      <option>Unassigned</option>
+                      <option>Other 1</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Classifiaction Type</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"select"}
+                    >
+                      <option>N/A</option>
+                      <option>Other</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Verification Status</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"select"}
+                    >
+                      <option>Unconfirmed</option>
+                      <option>Other</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Referred By</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={4} lg={4}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Designation</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary">Cancel</Button>
+          <Button color="primary">Save</Button>
+        </ModalFooter>
+      </Modal>
+      <Modal size="lg" isOpen={immunizationModal}>
+        <ModalHeader toggle={() => setImmunizationModal(!immunizationModal)}>
+          Add/Edit Immunization
+        </ModalHeader>
+        <ModalBody>
+          <Row>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Immunization (CVX Code)</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Date & Time Administered</Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Amount Administered:</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Immunization Expiration Date
+                </Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Immunization Manufacturer{" "}
+                </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Immunization Lot Number </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Name of Immunization Administrator{" "}
+                </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Or Choose </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Date Immunization Information Statement Given
+                </Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Date of VIS Statement</Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Route</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Adminsitration Site </Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} lg={12}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Notes </Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Information Source</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>N/A</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Completion Status</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>N/A</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Substance Refusal Reason</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>N/A</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Reason Code</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>N/A</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Immunization Ordering Provider
+                </Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>N/A</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Observation Criteria</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Unassigned</option>
+                  <option>Vaccine funding program eligibility category</option>
+                  <option>Vaccine type</option>
+                  <option>Disease with presumed immunity</option>
+                </Input>
+              </FormGroup>
+            </Col>
+          </Row>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary">Cancel</Button>
+          <Button color="primary">Save</Button>
+        </ModalFooter>
+      </Modal>
+      <Modal size="md" isOpen={documentModal}>
+        <ModalHeader toggle={() => setDocumentModal(!documentModal)}>
+          Add/Edit Document
+        </ModalHeader>
+        <ModalBody>
+          <Row>
+            <Col md={12} lg={12}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Category</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Lab report</option>
+                  <option>Medical Report</option>
+                  <option>Imaging</option>
+                  <option>Other</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={12} lg={12}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Template</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Help</option>
+                  <option>Hippa Document Oemr</option>
+                  <option>Insurence Info</option>
+                  <option>Medical History</option>
+                  <option>Privacy Document</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={12} lg={12}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Source File Path</Label>
+                <Input id={"companyName"} name={"companyName"} type={"file"} />
+              </FormGroup>
+            </Col>
+          </Row>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">Save</Button>
+          <Button color="secondary">Close</Button>
+        </ModalFooter>
+      </Modal>
+      <Modal size="lg" isOpen={referralModal}>
+        <ModalHeader toggle={() => setReferralModal(!referralModal)}>
+          Add/Edit Referral
+        </ModalHeader>
+        <ModalBody>
+          <Row>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Transaction Type</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Billing</option>
+                  <option>Legal</option>
+                  <option>Patient Request</option>
+                  <option>Referral</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={1} lg={1}></Col>
+            <Col
+              md={6}
+              lg={6}
+              style={{ border: "solid 1px", borderRadius: "5px" }}
+              className="mb-3"
+            >
+              <div className="mt-1">
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"checkbox"}
+                  checked
+                />{" "}
+                <Label className="fw-semi-bold">Send Summary of Care?</Label>
+              </div>
+              <div>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"checkbox"}
+                />{" "}
+                <Label className="fw-semi-bold">
+                  Send Summary of Care Electronically
+                </Label>
+              </div>
+              <div>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"checkbox"}
+                />{" "}
+                <Label className="fw-semi-bold">
+                  Confirmed Recipient Received Summary of Care
+                </Label>
+              </div>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Referral Date<span style={{ color: "red" }}>* </span>
+                </Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Refer By<span style={{ color: "red" }}>* </span>
+                </Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Donna Lee</option>
+                  <option>Harry Johnson</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">External Referral</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Unassigned</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Refer To<span style={{ color: "red" }}>* </span>
+                </Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Lee, Donna</option>
+                  <option>Johnson, Harry</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">
+                  Reason<span style={{ color: "red" }}>* </span>
+                </Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Referral Diagnosis</Label>
+                <Input id={"companyName"} name={"companyName"} type={"type"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Risk Level</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Low</option>
+                  <option>Medium</option>
+                  <option>High</option>
+                  <option>Very High</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Include Vitals</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Yes</option>
+                  <option>No</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Requested Service</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Patient Billing Facility</Label>
+                <Input id={"companyName"} name={"companyName"} type={"select"}>
+                  <option>Great Clinic</option>
+                  <option>Facility 2</option>
+                </Input>
+              </FormGroup>
+            </Col>
+          </Row>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">Save</Button>
+          <Button color="secondary">Close</Button>
+        </ModalFooter>
+      </Modal>
+      <Modal size="lg" isOpen={counterReferralModal}>
+        <ModalHeader
+          toggle={() => setCounterReferralModal(!counterReferralModal)}
+        >
+          Counter-Referral
+        </ModalHeader>
+        <ModalBody>
+          <Row>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Reply Date</Label>
+                <DatePicker
+                  className="form-control"
+                  selected={scheduledDate}
+                  onChange={(date) => {
+                    setScheduledDate(date);
+                  }}
+                  dateFormat="MM/dd/yyyy"
+                  placeholderText="Eg. mm/dd/yyyy"
+                  name={"scheduleDate"}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Reply From</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Presumed Diagnosis</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Final Diagnosis</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Documents</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Findings</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Services Provider</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Recommendations</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                ></Input>
+              </FormGroup>
+            </Col>
+            <Col md={6} lg={6}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Prescriptions/Referrals</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"textarea"}
+                ></Input>
+              </FormGroup>
+            </Col>
+          </Row>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">Save</Button>
+          <Button color="secondary">Close</Button>
         </ModalFooter>
       </Modal>
     </>

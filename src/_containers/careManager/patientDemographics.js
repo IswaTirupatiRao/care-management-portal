@@ -9,8 +9,10 @@ import {
   Label,
   FormGroup,
 } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
 export function PatientDemographic() {
+  const navigate = useNavigate();
   return (
     <>
       <h5 className="ms-1 mb-3">Add New Patient</h5>
@@ -621,6 +623,20 @@ export function PatientDemographic() {
       </Card>
       <Button className="float-end" color="primary">
         Save new patient
+      </Button>
+      <Button
+        className="float-end me-2"
+        color="alternate"
+        onClick={() => navigate("/patient_and_family_history")}
+      >
+        Enter History Details
+      </Button>
+      <Button
+        className="float-end me-2"
+        color="alternate"
+        onClick={() => navigate("/insurance")}
+      >
+        Enter Insurence Details
       </Button>
     </>
   );

@@ -15,10 +15,24 @@ import {
   ModalFooter,
 } from "reactstrap";
 import InputMask from "react-input-mask";
+import { BsFillTrashFill } from "react-icons/bs";
 export function Master() {
   const [facilityModal, setFacilityModal] = useState(false);
   const [pharmacyModal, setPharmacyModal] = useState(false);
   const [insurenceModal, setInsurenceModal] = useState(false);
+  let facilityArray = [
+    "Premier Care",
+    "Park Senior Villas",
+    "Desert Care Management",
+    "Walmart Care Facility",
+  ];
+  let pharmacyArray = [
+    "Sunnyslope Family Health Center Pharmacy",
+    "Walmart Pharmacy",
+    "Pharmerica Pharmacy",
+    "Summit Pharmacy",
+  ];
+  let insurenceArray = ["Cigna", "Aetna", "United Healthcare", "Humana"];
   return (
     <>
       <Row>
@@ -36,7 +50,33 @@ export function Master() {
                 </Button>
               </div>
             </CardHeader>
-            <CardBody></CardBody>
+
+            <CardBody>
+              <Row>
+                <Col md={4} lg={4} className="fw-bold">
+                  Facility Name
+                </Col>
+                <Col md={4} lg={4} className="fw-bold">
+                  Location
+                </Col>
+                <Col md={4} lg={4}></Col>
+              </Row>
+              {facilityArray.map((options) => (
+                <Row>
+                  <Col md={4} lg={4}>
+                    {options}
+                  </Col>
+                  <Col md={6} lg={6}>
+                    Arizona, USA
+                  </Col>
+                  <Col md={2} lg={2}>
+                    <span className="float-end">
+                      <BsFillTrashFill className="me-2" />
+                    </span>
+                  </Col>
+                </Row>
+              ))}
+            </CardBody>
           </Card>
         </Col>
         <Col>
@@ -53,7 +93,32 @@ export function Master() {
                 </Button>
               </div>
             </CardHeader>
-            <CardBody></CardBody>
+            <CardBody>
+              <Row>
+                <Col md={6} lg={6} className="fw-bold">
+                  Pharmacy Name
+                </Col>
+                <Col md={4} lg={4} className="fw-bold">
+                  Location
+                </Col>
+                <Col md={4} lg={4}></Col>
+              </Row>
+              {pharmacyArray.map((options) => (
+                <Row>
+                  <Col md={6} lg={6}>
+                    {options}
+                  </Col>
+                  <Col md={4} lg={4}>
+                    Arizona, USA
+                  </Col>
+                  <Col md={2} lg={2}>
+                    <span className="float-end">
+                      <BsFillTrashFill className="me-2" />
+                    </span>
+                  </Col>
+                </Row>
+              ))}
+            </CardBody>
           </Card>
         </Col>
       </Row>
@@ -72,7 +137,32 @@ export function Master() {
                 </Button>
               </div>
             </CardHeader>
-            <CardBody></CardBody>
+            <CardBody>
+              <Row>
+                <Col md={4} lg={4} className="fw-bold">
+                  Insurance Company Name
+                </Col>
+                <Col md={4} lg={4} className="fw-bold">
+                  Location
+                </Col>
+                <Col md={4} lg={4}></Col>
+              </Row>
+              {insurenceArray.map((options) => (
+                <Row>
+                  <Col md={4} lg={4}>
+                    {options}
+                  </Col>
+                  <Col md={6} lg={6}>
+                    Arizona, USA
+                  </Col>
+                  <Col md={2} lg={2}>
+                    <span className="float-end">
+                      <BsFillTrashFill className="me-2" />
+                    </span>
+                  </Col>
+                </Row>
+              ))}
+            </CardBody>
           </Card>
         </Col>
         <Col></Col>

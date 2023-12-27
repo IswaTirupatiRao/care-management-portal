@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardBody,
@@ -8,8 +8,13 @@ import {
   Col,
   Input,
 } from "reactstrap";
+import InputMask from "react-input-mask";
+import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 import DataTable from "react-data-table-component";
 export function SearchPatient() {
+  const navigate = useNavigate();
+  const [scheduledDate, setScheduledDate] = useState();
   let data = [
     {
       fullname: "Erin Adams",
@@ -40,6 +45,16 @@ export function SearchPatient() {
     {
       name: "Full name",
       selector: (row) => row.fullname,
+      cell: (row) => (
+        <>
+          <span
+            onClick={() => navigate("/")}
+            style={{ cursor: "Pointer", color: "#545cd8" }}
+          >
+            {row.fullname}
+          </span>
+        </>
+      ),
       sortable: true,
       width: "30%",
     },
@@ -72,7 +87,11 @@ export function SearchPatient() {
         <CardHeader className="card-title-text text-capitalize">
           Patient Finder
           <div className="float-end me-2 ms-auto">
-            <Button className="link-text" color="primary">
+            <Button
+              className="link-text"
+              color="primary"
+              onClick={() => navigate("/demographics")}
+            >
               Add new patient
             </Button>
           </div>
@@ -88,10 +107,12 @@ export function SearchPatient() {
               />
             </Col>
             <Col md={3} lg={3}>
-              <Input
-                id={"companyName"}
-                name={"companyName"}
-                type={"search"}
+              <InputMask
+                className="form-control"
+                mask="(999)-999-9999"
+                maskChar={null}
+                name="phoneNo"
+                id="phoneNo"
                 placeholder="Search by home phone"
               />
             </Col>
@@ -104,11 +125,15 @@ export function SearchPatient() {
               />
             </Col>
             <Col md={3} lg={3}>
-              <Input
-                id={"companyName"}
-                name={"companyName"}
-                type={"search"}
-                placeholder="Search by date of birth"
+              <DatePicker
+                className="form-control"
+                selected={scheduledDate}
+                onChange={(date) => {
+                  setScheduledDate(date);
+                }}
+                dateFormat="MM/dd/yyyy"
+                placeholderText="Search by date of birth"
+                name={"scheduleDate"}
               />
             </Col>
           </Row>
