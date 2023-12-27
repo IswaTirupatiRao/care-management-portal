@@ -27,6 +27,8 @@ import { PatientFamilyHistory } from "_containers/careManager/patientFamilyHisto
 import { Diagnosis } from "_containers/careManager/diagnosis";
 import { Reports } from "_containers/careManager/reports";
 import { Admin } from "_containers/careManager/admin";
+import { Insurence } from "_containers/careManager/insurence";
+import { PatientProfile } from "_containers/careManager/patientProfile ";
 
 export function App() {
   const authUser = useSelector((state) => state.auth.token);
@@ -141,12 +143,27 @@ export function App() {
               </PrivateRoute>
             }
           />
-                    />
            <Route
             path="/Admin"
             element={
               <PrivateRoute>
                 <Admin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/insurance"
+            element={
+              <PrivateRoute>
+                <Insurence />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/other_info"
+            element={
+              <PrivateRoute>
+                <PatientProfile />
               </PrivateRoute>
             }
           />

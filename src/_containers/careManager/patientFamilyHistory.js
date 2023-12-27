@@ -9,186 +9,311 @@ import {
   Label,
   FormGroup,
 } from "reactstrap";
-import InputMask from "react-input-mask";
 export function PatientFamilyHistory() {
+  let examArray = [
+    "Cardiac Echo",
+    "ECG",
+    "Gynecologiscal Exam",
+    "Mannogram",
+    "Physical Exam",
+    "Prostate Exam",
+    "Rectal Exam",
+    "Sigmoid/Colonoscopy",
+    "Retinal Exam",
+    "Flu Vaccination",
+    "Pneumonia Vaccination",
+    "LDL",
+    "Hemoglobin",
+    "PSA",
+  ];
+  let RiskArray = [
+    "Varicose Veins",
+    "Hypertension",
+    "Diabities",
+    "Sickle Cell",
+    "Fibroids",
+    "PID (Pelvic Inflammatory Disease",
+    "Severe Migraine",
+    "Heart Disease",
+    "Thrombosis/Stroke",
+    "Hepatitis",
+    "Gall Bladder Conditions",
+    "Breast Disease",
+    "Depression",
+    "Allergies",
+    "Infertilities",
+    "Asthma",
+    "Epilepsy",
+    "Contact Lenses",
+    "Contraceptive Complications",
+    "Other (Specify)",
+  ];
   return (
     <>
       <h5 className="ms-1 mb-3">Add New Patient & Family History</h5>
       <Card className="mb-2">
         <CardBody>
-          <Label className="fw-bold">Basic Information</Label>
+          <Label className="fw-bold">Risk Factors</Label>
+          <div className="divider mt-1" />
+          <Row>
+            {RiskArray.map((options) => (
+              <Col md={3} lg={3}>
+                <FormGroup>
+                  <Input
+                    id={"companyName"}
+                    name={"companyName"}
+                    type={"checkbox"}
+                  ></Input>
+                  <Label className="fw-semi-bold ms-2">{options}</Label>
+                </FormGroup>
+              </Col>
+            ))}
+          </Row>
+        </CardBody>
+      </Card>
+      <Card className="mb-2">
+        <CardBody>
+          <Label className="fw-bold">Exams/Tests</Label>
           <div className="divider mt-1" />
           <Row>
             <Col md={2} lg={2}>
               <FormGroup>
-                <Label className="fw-semi-bold">Title</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Mr.</option>
-                  <option>Mrs.</option>
-                  <option>Ms.</option>
-                  <option>Dr.</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} lg={12}>
-              <Label className="fw-semi-bold">First name</Label>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
+                <Label className="fw-semi-bold">Exam or Test</Label>
                 <Input
                   id={"companyName"}
                   name={"companyName"}
                   type={"text"}
-                  placeholder="First name"
+                  disabled
+                  value={"Breast Exam"}
                 />
               </FormGroup>
             </Col>
-            <Col md={2} lg={2}>
+            <Col md={1} lg={1}>
               <FormGroup>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="Middle name"
-                />
+                <Label className="fw-semi-bold ">N/A</Label>
+                <Row>
+                  <Col className="ms-2 mt-2">
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+            <Col md={1} lg={1}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Nor</Label>
+                <Row>
+                  <Col className="ms-2 mt-2">
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+            <Col md={1} lg={1}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Abn</Label>
+                <Row>
+                  <Col className="ms-2 mt-2">
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                  </Col>
+                </Row>
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="Last name"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={2} lg={2}>
-              <FormGroup>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="Name suffix"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Preferred name</Label>
-                <Input
-                  id={"companyName"}
-                  name={"companyName"}
-                  type={"text"}
-                  placeholder="Patient preferred name"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">External ID</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Date of birth</Label>
-                <Input id={"companyName"} name={"companyName"} type={"date"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Sex</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Female</option>
-                  <option>Male</option>
-                  <option>Unknown</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">S.S</Label>
+                <Label className="fw-semi-bold">Date/notes</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
           </Row>
+          {examArray.map((options) => (
+            <>
+              <Row>
+                <Col md={2} lg={2}>
+                  <FormGroup>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                      disabled
+                      value={options}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={1} lg={1}>
+                  <FormGroup>
+                    <Row>
+                      <Col className="ms-2 mt-2">
+                        <Input
+                          id={"companyName"}
+                          name={"companyName"}
+                          type={"radio"}
+                        />
+                      </Col>
+                    </Row>
+                  </FormGroup>
+                </Col>
+                <Col md={1} lg={1}>
+                  <FormGroup>
+                    <Row>
+                      <Col className="ms-2 mt-2">
+                        <Input
+                          id={"companyName"}
+                          name={"companyName"}
+                          type={"radio"}
+                        />
+                      </Col>
+                    </Row>
+                  </FormGroup>
+                </Col>
+                <Col md={1} lg={1}>
+                  <FormGroup>
+                    <Row>
+                      <Col className="ms-2 mt-2">
+                        <Input
+                          id={"companyName"}
+                          name={"companyName"}
+                          type={"radio"}
+                        />
+                      </Col>
+                    </Row>
+                  </FormGroup>
+                </Col>
+                <Col md={3} lg={3}>
+                  <FormGroup>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+            </>
+          ))}
+        </CardBody>
+      </Card>
+      <Card className="mb-2">
+        <CardBody>
+          <Label className="fw-bold">Family History</Label>
+          <div className="divider mt-1" />
           <Row>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">License ID</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Father"
+                />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Marital Status</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Married</option>
-                  <option>Single</option>
-                  <option>Divorced</option>
-                  <option>Widowed</option>
-                  <option>Seperated</option>
-                  <option>Domestic Partner</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Language</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>English</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Ethnicity</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Hispanic or Lactino</option>
-                  <option>Not Hispanic or Lactino</option>
-                </Input>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Diagnosis Code"
+                />
               </FormGroup>
             </Col>
           </Row>
           <Row>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Race</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Declined to specify</option>
-                  <option>American Indian or Alaska Native</option>
-                  <option>Asian</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Nationality</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Family size</Label>
                 <Input
                   id={"companyName"}
                   name={"companyName"}
-                  type={"number"}
+                  type={"text"}
+                  placeholder="Mother"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Diagnosis Code"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Siblings"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Diagnosis Code"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Spouce"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Diagnosis Code"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Offspring"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder="Diagnosis Code"
                 />
               </FormGroup>
             </Col>
@@ -197,125 +322,57 @@ export function PatientFamilyHistory() {
       </Card>
       <Card className="mb-2">
         <CardBody>
-          <Label className="fw-bold">Contact</Label>
+          <Label className="fw-bold">Relatives</Label>
           <div className="divider mt-1" />
           <Row>
-            <Col md={12} lg={12}>
+            <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Address</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={12} lg={12}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Address Line 2</Label>
+                <Label className="fw-semi-bold">Cancer</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">City</Label>
+                <Label className="fw-semi-bold">Tuberculosis</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">State</Label>
+                <Label className="fw-semi-bold">Diabetes</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Postal Code</Label>
+                <Label className="fw-semi-bold">High Blood Pressure</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Country</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>USA</option>
-                </Input>
               </FormGroup>
             </Col>
           </Row>
           <Row>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Mother's Name</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={6} lg={6}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Emergency Contact</Label>
+                <Label className="fw-semi-bold">Heart Problem</Label>
                 <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Emergency Phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
+                <Label className="fw-semi-bold">Stroke</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Home Phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
+                <Label className="fw-semi-bold">Epilepsy</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Work Phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Mobile Phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6} lg={6}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Contact Email</Label>
-                <Input id={"companyName"} name={"companyName"} type={"email"} />
-              </FormGroup>
-            </Col>
-            <Col md={6} lg={6}>
-              <FormGroup>
-                <Label className="fw-semi-bold">County</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                </Input>
+                <Label className="fw-semi-bold">Mental Illness</Label>
+                <Input id={"companyName"} name={"companyName"} type={"text"} />
               </FormGroup>
             </Col>
           </Row>
@@ -323,296 +380,392 @@ export function PatientFamilyHistory() {
       </Card>
       <Card className="mb-2">
         <CardBody>
-          <Label className="fw-bold">Employer</Label>
+          <Label className="fw-bold">Lifestyle</Label>
           <div className="divider mt-1" />
           <Row>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">Occupation</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Employer Name</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={6} lg={6}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Employer Address</Label>
+                <Label className="fw-semi-bold">Tobacco</Label>
                 <Input
                   id={"companyName"}
                   name={"companyName"}
-                  type={"textarea"}
+                  type={"text"}
+                  placeholder=""
                 />
               </FormGroup>
             </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
+            <Col md={4} lg={4}>
               <FormGroup>
-                <Label className="fw-semi-bold">City</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">State</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Postal Code</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Country</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>USA</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-      <Card className="mb-2">
-        <CardBody>
-          <Label className="fw-bold">Provider & Other</Label>
-          <div className="divider mt-1" />
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Provider</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Provider since date</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Reffered Provider</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Pharmacy</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
               </FormGroup>
             </Col>
           </Row>
           <Row>
             <Col md={3} lg={3}>
               <FormGroup>
-                <Label className="fw-semi-bold">HIPPA Notice Received</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>No</option>
-                  <option>Yes</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Leave message with</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Allow voice Messages</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>No</option>
-                  <option>Yes</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Allow Mail Message</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>No</option>
-                  <option>Yes</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Allow SMS</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>No</option>
-                  <option>Yes</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Allow Email</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>No</option>
-                  <option>Yes</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} lg={12}>
-              <Label>Care Team Details</Label>
-              <div className="divider mt-1" />
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Care Team (Provider)</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Care Team (Facility)</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Care Team Status</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Patient Category</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-      <Card className="mb-2">
-        <CardBody>
-          <Label className="fw-bold">Guardian</Label>
-          <div className="divider mt-1" />
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Name</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Relationship</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Sex</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Female</option>
-                  <option>Male</option>
-                  <option>Unknown</option>
-                </Input>
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Address</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">City</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">State</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Postal Code</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Country</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>USA</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Work phone</Label>
-                <InputMask
-                  className="form-control"
-                  mask="(999)-999-9999"
-                  maskChar={null}
-                  name="phoneNo"
-                  id="phoneNo"
-                  placeholder="Eg: (987)-654-3210"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Email</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-      <Card className="mb-2">
-        <CardBody>
-          <Label className="fw-bold">Notes</Label>
-          <div className="divider mt-1" />
-          <Row>
-            <Col md={3} lg={3}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Date Deceased</Label>
-                <Input id={"companyName"} name={"companyName"} type={"text"} />
-              </FormGroup>
-            </Col>
-            <Col md={9} lg={9}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Reason Deceased</Label>
+                <Label className="fw-semi-bold">Coffee</Label>
                 <Input
                   id={"companyName"}
                   name={"companyName"}
-                  type={"textarea"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Alcohol</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Recreational Drugs</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Counseling</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Excercise Patters</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Hazardous activities</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4} lg={4}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Status</Label>
+                <Row className="mt-2">
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Current</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Quit</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">Never</Label>
+                  </Col>
+                  <Col>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"radio"}
+                    />
+                    <Label className="fw-semi-bold ms-2">N/A</Label>
+                  </Col>
+                </Row>
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Sleep Patterns</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3} lg={3}>
+              <FormGroup>
+                <Label className="fw-semi-bold">Seatbelt Use</Label>
+                <Input
+                  id={"companyName"}
+                  name={"companyName"}
+                  type={"text"}
+                  placeholder=""
                 />
               </FormGroup>
             </Col>
@@ -620,7 +773,7 @@ export function PatientFamilyHistory() {
         </CardBody>
       </Card>
       <Button className="float-end" color="primary">
-        Save new patient
+        Save Details
       </Button>
     </>
   );
