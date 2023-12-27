@@ -8,6 +8,7 @@ import {
   Col,
   FormGroup,
   Label,
+  Table,
   Input,
 } from "reactstrap";
 import DataTable from "react-data-table-component";
@@ -18,7 +19,7 @@ export function Reports() {
       phone: "(986)-324-8765",
       ssn: "123-456-7890",
       dob: "12 Dec 1997",
-      LastVisit:"12 Dec 2021",
+      LastVisit:"2022-12-17",
       ID:"34",
       Street:"1235 kings CD.",
       City:"pune",
@@ -31,7 +32,7 @@ export function Reports() {
       phone: "(986)-546-8765",
       ssn: "123-456-7890",
       dob: "12 Nov 1998",
-      LastVisit:"11 Dec 2021",
+      LastVisit:"2022-12-17",
       ID:"04",
       Street:"1235 kings CD.",
       City:"pune",
@@ -44,7 +45,7 @@ export function Reports() {
       phone: "(986)-879-8765",
       ssn: "123-456-7890",
       dob: "12 Oct 1999",
-      LastVisit:"01 Dec 2021",
+      LastVisit:"2022-12-17",
       ID:"11",
       Street:"1235 kings CD.",
       City:"pune",
@@ -57,7 +58,7 @@ export function Reports() {
       phone: "(986)-123-8765",
       ssn: "123-456-7890",
       dob: "12 Aug 1990",
-      LastVisit:"11 Dec 2021",
+      LastVisit:"2022-12-17",
       ID:"22",
       Street:"1235 kings CD.",
       City:"pune",
@@ -121,26 +122,224 @@ export function Reports() {
   const handleButtonClick = () => {
     console.log("clicked");
   };
+  // Add a new entry for Phil Belford
+  let philBelfordData = [
+    {
+      fullname: "Phil Belford",
+      phone: "(986)-789-1234",
+      ssn: "123-456-7890",
+      dob: "15 Mar 1985",
+      LastVisit: "2022-12-20",
+      ID: "45",
+      Street: "5678 Main St",
+      City: "New York",
+      state: "NY",
+      zip: "10001",
+      PID:"1",
+      HomeNumber: "987-654-3210",
+      Age: 38,
+      Gender: "Male",
+      Race: "Caucasian",
+      Reson: " painful urination",
+    },
+    {
+      fullname: "Phil Belford",
+      phone: "(986)-789-1234",
+      ssn: "123-456-7890",
+      dob: "15 Mar 1985",
+      LastVisit: "2022-12-20",
+      ID: "45",
+      Street: "5678 Main St",
+      City: "New York",
+      state: "NY",
+      PID:"1",
+
+      zip: "10001",
+      HomeNumber: "987-654-3210",
+      Age: 38,
+      Gender: "Male",
+      Race: "Caucasian",
+      Reson: " painful urination",
+    },
+    {
+      fullname: "Phil Belford",
+      phone: "(986)-789-1234",
+      ssn: "123-456-7890",
+      dob: "15 Mar 1985",
+      Last: "2022-12-20",
+      ID: "45",
+      Street: "5678 Main St",
+      City: "New York",
+      state: "NY",
+      zip: "10001",
+      PID:"1",
+      Ethnicity:"not Hispancic or latino",
+      HomeNumber: "987-654-3210",
+      Age: 38,
+      Gender: "Male",
+      Race: "Caucasian",
+      Reson: " painful urination",
+    },
+  ];
+
+data = [...data, ...philBelfordData];
+
+
+const philBelfordColumns = (clickHandler) => [
+
+  {
+    name: "Patient Name",
+    selector: (row) => row.fullname,
+    sortable: true,
+    width: "30%",
+  },
+
+  {
+    name: "PID",
+    sortable: true,
+    selector: (row) => row.PID,
+    width: "20%",
+  },
+  {
+    name: "Age",
+    sortable: true,
+    selector: (row) => row.Age,
+    width: "10%",
+  },
+  {
+    name: "Gender",
+    sortable: true,
+    selector: (row) => row.Gender,
+    width: "10%",
+  },
+  
+  {
+    name: "Race",
+    sortable: true,
+    selector: (row) => row.Race,
+    width: "15%",
+  },
+  {
+    name: "Ethnicity",
+    sortable: true,
+    selector: (row) => row.Ethnicity,
+    width: "20%",
+  },
+  {
+    name: "Provider",
+    sortable: true,
+    selector: (row) => row.Provider,
+    width: "20%",
+  },
+];
+ // Add a new Referrals
+ let Referrals = [
+  {
+    fullname: "Phil Belford",
+    phone: "(986)-789-1234",
+    ssn: "123-456-7890",
+    dob: "15 Mar 1985",
+    LastVisit: "2022-12-20",
+    ID: "45",
+    Street: "5678 Main St",
+    City: "New York",
+    state: "NY",
+    zip: "10001",
+    PID:"1",
+    HomeNumber: "987-654-3210",
+    Age: 38,
+    Gender: "Male",
+    Race: "Caucasian",
+    Provider: "HealthCare XYZ",
+  },
+  {
+    fullname: "Phil Belford",
+    phone: "(986)-789-1234",
+    ssn: "123-456-7890",
+    dob: "15 Mar 1985",
+    LastVisit: "2022-12-20",
+    ID: "45",
+    Street: "5678 Main St",
+    City: "New York",
+    state: "NY",
+    PID:"1",
+
+    zip: "10001",
+    HomeNumber: "987-654-3210",
+    Age: 38,
+    Gender: "Male",
+    Race: "Caucasian",
+    Provider: "HealthCare XYZ",
+  },
+  {
+    fullname: "Phil Belford",
+    phone: "(986)-789-1234",
+    ssn: "123-456-7890",
+    dob: "15 Mar 1985",
+    LastVisit: "2022-12-20",
+    ID: "45",
+    Street: "5678 Main St",
+    City: "New York",
+    state: "NY",
+    zip: "10001",
+    PID:"1",
+    Ethnicity:"not Hispancic or latino",
+    HomeNumber: "987-654-3210",
+    Age: 38,
+    Gender: "Male",
+    Race: "Caucasian",
+    Provider: "HealthCare XYZ",
+  },
+];
+
+data = [...data, ...Referrals];
+
+
+const ReferralsColumns = (clickHandler) => [
+
+{
+  name: "Refer TO",
+  sortable: true,
+  selector: (row) => row.fullname,
+  width: "10%",
+},
+{
+  name: "Refer Date",
+  sortable: true,
+  selector: (row) => row.Last,
+  width: "10%",
+},
+
+{
+  name: "Replay Date",
+  sortable: true,
+  selector: (row) => row.Race,
+  width: "15%",
+},
+{
+  name: "Patient",
+  sortable: true,
+  selector: (row) => row.fullname,
+  width: "20%",
+},
+{
+  name: "ID",
+  sortable: true,
+  selector: (row) => row.ID,
+  width: "20%",
+},
+{
+  name: "Reson",
+  sortable: true,
+  selector: (row) => row.Reson,
+  width: "20%",
+},
+];
   return (
     <>
       <Card>
         <CardHeader className="card-title-text text-capitalize">
           Patient Finder
-          <div className="float-end me-2 ms-auto">
-            <Button className="link-text" color="primary">
-              Submit
-            </Button>
-          </div>
-          <div className="float-end me-2">
-            <Button className="link-text" color="primary">
-              Export to CSV
-            </Button>
-          </div>
-          <div className="float-end me-2">
-            <Button className="link-text" color="primary">
-              Print
-            </Button>
-          </div>
         </CardHeader>
         <CardBody>
           <Row className="mb-2">
@@ -180,6 +379,23 @@ export function Reports() {
                     /></Col>
                 </Row>
             </Col>
+            <Col>       
+             <div className="float-end me-2 ms-auto">
+            <Button className="link-text" color="primary">
+              Submit
+            </Button>
+          </div>
+          <div className="float-end me-2">
+            <Button className="link-text" color="primary">
+              Export to CSV
+            </Button>
+          </div>
+          <div className="float-end me-2">
+            <Button className="link-text" color="primary">
+              Print
+            </Button>
+          </div></Col>
+
           </Row>
           <DataTable
             columns={columns(handleButtonClick)}
@@ -194,20 +410,7 @@ export function Reports() {
         <CardBody>
           <Label className="fw-bold">Report - Clinical</Label>
           <div className="divider mt-1" />
-          <Row>
-            <Col md={2} lg={2}>
-              <FormGroup>
-                <Label className="fw-semi-bold">Title</Label>
-                <Input id={"companyName"} name={"companyName"} type={"select"}>
-                  <option>Unassigned</option>
-                  <option>Mr.</option>
-                  <option>Mrs.</option>
-                  <option>Ms.</option>
-                  <option>Dr.</option>
-                </Input>
-              </FormGroup>
-            </Col>
-          </Row>
+
           <Row>
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">Facility</Label>
@@ -364,7 +567,7 @@ export function Reports() {
         </CardHeader>
         <CardBody>
           <DataTable
-            columns={columns(handleButtonClick)}
+            columns={philBelfordColumns(handleButtonClick)}
             data={data}
             persistTableHead
             pagination
@@ -372,6 +575,71 @@ export function Reports() {
         </CardBody>
       </Card>
       <h5 className="ms-1 mb-3"></h5>
+      <Card>
+        <CardHeader className="card-title-text text-capitalize">
+          Report - Referrals
+        </CardHeader>
+        <CardBody>
+            <Row className="mb-2">
+            <Col md={3} lg={3}>
+            <>Facility:</>
+
+              <Input
+                id={"companyName"}
+                name={"companyName"}
+                type={"search"}
+                placeholder=" --All-- "
+              />
+            </Col>
+            <Col md={3} lg={3}>
+                <Row>
+                    <Col md={3} lg={3}>Visits From:
+                    </Col>
+                    <Col>
+                    <Input
+                        id={"companyName"}
+                        name={"companyName"}
+                        type={"date"}
+                        placeholder="2023-01-12"
+                    /></Col>
+                </Row>
+            </Col>
+            <Col md={3} lg={3}>
+                <Row>
+                    <Col md={3} lg={3}>To:
+                    </Col>
+                    <Col>
+                    <Input
+                        id={"companyName"}
+                        name={"companyName"}
+                        type={"date"}
+                        placeholder="2023-01-12"
+                    /></Col>
+                </Row>
+            </Col>
+            <Col>       
+             <div className="float-end me-2 ms-auto">
+            <Button className="link-text" color="primary">
+              Submit
+            </Button>
+          </div>
+          <div className="float-end me-2">
+            <Button className="link-text" color="primary">
+              Print
+            </Button>
+          </div></Col>
+
+          </Row>
+          <DataTable
+            columns={ReferralsColumns(handleButtonClick)}
+            data={data}
+            persistTableHead
+            pagination
+          />
+        </CardBody>
+      </Card>
+      <h5 className="ms-1 mb-3"></h5>
+
       <Card className="mb-2">
         <CardBody>
           <Label className="fw-bold">Report - Automated Measure Calculations (AMC) - Date of Report : 2023-23-12 20:24:38</Label>
@@ -467,10 +735,75 @@ export function Reports() {
           </Row>
         </CardBody>
       </Card>
+      <Card>
+              <Table size="sm">
+              <thead>
+                <tr>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Total Patients
+                  </th>
+                  <th>
+                    Denominator
+                  </th>
+                  <th>
+                    Numberator
+                  </th>
+                  <th>
+                    Failed
+                  </th>
+                  <th>
+                    Performance Percentage
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Provide Patients Electronic Access to Their Health Information - API Access
+                  </th>
+                  <td>
+                    25
+                  </td>
+                  <td>
+                    12
+                  </td>
+                  <td>
+                    2
+                  </td>
+                  <td>
+                    22
+                  </td>
+                  <td>
+                    16.66667%
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Support Electronic Referral Loops By Sending HEalTh Information
+                  </th>
+                  <td>
+                    25
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    0
+                  </td>
+                  <td>
+                    5
+                  </td>
+                  <td>
+                    00.0000%
+                  </td>
+                </tr>
 
-      <Button className="float-end" color="primary">
-        Save 
-      </Button>
+              </tbody>
+            </Table>
+      </Card>
     </>
   );
 }
