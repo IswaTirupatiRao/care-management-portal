@@ -415,7 +415,7 @@ const ReferralsColumns = (clickHandler) => [
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">Facility</Label>
             </Col>
-            <Col md={12} lg={12}>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Input
                   id={"companyName"}
@@ -648,7 +648,7 @@ const ReferralsColumns = (clickHandler) => [
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">Begin Date</Label>
             </Col>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Input
                   id={"companyName"}
@@ -663,7 +663,7 @@ const ReferralsColumns = (clickHandler) => [
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">End Date</Label>
             </Col>
-            <Col md={6} lg={6}>
+            <Col md={3} lg={3}>
               <FormGroup>
                 <Input
                   id={"companyName"}
@@ -692,7 +692,7 @@ const ReferralsColumns = (clickHandler) => [
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">Provider</Label>
             </Col>
-            <Col md={12} lg={12}>
+            <Col md={6} lg={6}>
               <FormGroup>
                 <Input
                   id={"companyName"}
@@ -707,7 +707,7 @@ const ReferralsColumns = (clickHandler) => [
             <Col md={12} lg={12}>
               <Label className="fw-semi-bold">Provider Relationship</Label>
             </Col>
-            <Col md={12} lg={12}>
+            <Col md={6} lg={6}>
               <FormGroup>
                 <Input
                   id={"companyName"}
