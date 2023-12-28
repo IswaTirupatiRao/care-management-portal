@@ -65,7 +65,20 @@ export function CareCalender() {
 
                 <Calendar
                   localizer={localizer}
-                  events={[]}
+                  events={[
+                    {
+                      id: 1,
+                      title: "Lucifer Morningstar - Followup",
+                      start: new Date(2023, 12, 7),
+                      end: new Date(2023, 12, 7),
+                    },
+                    {
+                      id: 2,
+                      title: "Lucifer Morningstar - Health Checkup",
+                      start: new Date(2023, 11, 27),
+                      end: new Date(2023, 11, 27),
+                    },
+                  ]}
                   views={views}
                   messages={messages}
                   startAccessor="start"
