@@ -21,18 +21,29 @@ export function Master() {
   const [pharmacyModal, setPharmacyModal] = useState(false);
   const [insurenceModal, setInsurenceModal] = useState(false);
   let facilityArray = [
-    "Premier Care",
-    "Park Senior Villas",
-    "Desert Care Management",
-    "Walmart Care Facility",
+    { name: "Premier Care", location: "Arizona, USA" },
+    { name: "Park Senior Villas", location: "Arkinsas, USA" },
+    { name: "Desert Care Management", location: "Naveda, USA" },
+    { name: "Walmart Care Facility", location: "New York, USA" },
   ];
   let pharmacyArray = [
-    "Sunnyslope Family Health Center Pharmacy",
-    "Walmart Pharmacy",
-    "Pharmerica Pharmacy",
-    "Summit Pharmacy",
+    {
+      name: "Sunnyslope Family Health Center Pharmacy",
+      location: "Arizona, USA",
+    },
+    { name: "Walmart Pharmacy", location: "Arkinsas, USA" },
+    { name: "Pharmerica Pharmacy", location: "Naveda, USA" },
+    { name: "Summit Pharmacy", location: "New York, USA" },
   ];
-  let insurenceArray = ["Cigna", "Aetna", "United Healthcare", "Humana"];
+  let insurenceArray = [
+    {
+      name: "Cigna",
+      location: "Arizona, USA",
+    },
+    { name: "Aetna", location: "Arkinsas, USA" },
+    { name: "United Healthcare", location: "Naveda, USA" },
+    { name: "Humana", location: "New York, USA" },
+  ];
   return (
     <>
       <Row>
@@ -64,10 +75,10 @@ export function Master() {
               {facilityArray.map((options) => (
                 <Row>
                   <Col md={4} lg={4}>
-                    {options}
+                    {options.name}
                   </Col>
                   <Col md={6} lg={6}>
-                    Arizona, USA
+                    {options.location}
                   </Col>
                   <Col md={2} lg={2}>
                     <span className="float-end">
@@ -106,10 +117,10 @@ export function Master() {
               {pharmacyArray.map((options) => (
                 <Row>
                   <Col md={6} lg={6}>
-                    {options}
+                    {options.name}
                   </Col>
                   <Col md={4} lg={4}>
-                    Arizona, USA
+                    {options.location}
                   </Col>
                   <Col md={2} lg={2}>
                     <span className="float-end">
@@ -150,10 +161,10 @@ export function Master() {
               {insurenceArray.map((options) => (
                 <Row>
                   <Col md={4} lg={4}>
-                    {options}
+                    {options.name}
                   </Col>
                   <Col md={6} lg={6}>
-                    Arizona, USA
+                    {options.location}
                   </Col>
                   <Col md={2} lg={2}>
                     <span className="float-end">
