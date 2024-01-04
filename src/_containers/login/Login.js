@@ -117,10 +117,11 @@ export function Login() {
                       }}
                     />
                     <div className="login-slider-title">
-                      <p>Experts In Human Capital</p>
-                      <p className="login-slider-text m-5">
-                        What makes The Panther Group the ideal career partner?
-                        We focus on what you want most from your career!
+                      <p>Improve health outcomes!</p>
+                      <p className="login-slider-text m-5 mt-6">
+                        You have the vision, We have the technology let’s work
+                        together for a smarter tomorrow. <br /> Bring data to
+                        life with care managements
                       </p>
                     </div>
                   </div>
@@ -219,14 +220,14 @@ export function Login() {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col className="login-divider me-2" />
 
                       <Col className="col-md-1 login-mt d-flex justify-content-center align-items-center">
                         or
                       </Col>
                       <Col className="login-divider" />
-                    </Row>
+                    </Row> */}
 
                     {error && (
                       <div>
@@ -273,11 +274,11 @@ export function Login() {
                     <Col></Col>
                   </Row> */}
 
-                  <p className="mt-3 d-flex justify-content-center align-items-center">
+                  {/* <p className="mt-3 d-flex justify-content-center align-items-center">
                     <Link to="/registration" className="forgot-pwd-text">
                       Not a member yet?
                     </Link>
-                  </p>
+                  </p> */}
                 </div>
               </Col>
             </Col>
