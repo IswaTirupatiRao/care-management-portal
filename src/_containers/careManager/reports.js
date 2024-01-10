@@ -29,6 +29,8 @@ export function Reports() {
       state: "AC",
       zip: "3456",
       HomeNumber: "123-456-7890",
+      Race: "Caucasian",
+      Reson: " painful urination",
     },
     {
       fullname: "Mike Adams",
@@ -42,6 +44,8 @@ export function Reports() {
       zip: "3456",
       state: "AC",
       HomeNumber: "123-456-7890",
+      Race: "Caucasian",
+      Reson: "painful urination",
     },
     {
       fullname: "John Harrison",
@@ -55,6 +59,8 @@ export function Reports() {
       state: "AC",
       zip: "3456",
       HomeNumber: "123-456-7890",
+      Race: "Caucasian",
+      Reson: "internal Bleeding",
     },
     {
       fullname: "Lucifer Morningstar",
@@ -68,6 +74,8 @@ export function Reports() {
       state: "AC",
       zip: "3456",
       HomeNumber: "123-456-7890",
+      Race: "Caucasian",
+      Reson: "headache",
     },
   ];
   const columns = (clickHandler) => [
@@ -144,6 +152,8 @@ export function Reports() {
       Gender: "Male",
       Race: "Caucasian",
       Reson: " painful urination",
+      Provider: "HealthCare XYZ",
+      Ethnicity: "not Hispancic or latino",
     },
     {
       fullname: "Phil Belford",
@@ -156,13 +166,14 @@ export function Reports() {
       City: "New York",
       state: "NY",
       PID: "1",
-
       zip: "10001",
       HomeNumber: "987-654-3210",
       Age: 38,
       Gender: "Male",
       Race: "Caucasian",
       Reson: " painful urination",
+      Provider: "HealthCare XYZ",
+      Ethnicity: "not Hispancic or latino",
     },
     {
       fullname: "Phil Belford",
@@ -182,10 +193,11 @@ export function Reports() {
       Gender: "Male",
       Race: "Caucasian",
       Reson: " painful urination",
+      Provider: "HealthCare XYZ",
     },
   ];
 
-  data = [...data, ...philBelfordData];
+  // data = [...data, ...philBelfordData];
 
   const philBelfordColumns = (clickHandler) => [
     {
@@ -292,7 +304,7 @@ export function Reports() {
     },
   ];
 
-  data = [...data, ...Referrals];
+  data = [...data];
 
   const ReferralsColumns = (clickHandler) => [
     {
@@ -304,14 +316,14 @@ export function Reports() {
     {
       name: "Refer Date",
       sortable: true,
-      selector: (row) => row.Last,
+      selector: (row) => row.LastVisit,
       width: "10%",
     },
 
     {
       name: "Replay Date",
       sortable: true,
-      selector: (row) => row.Race,
+      selector: (row) => row.LastVisit,
       width: "15%",
     },
     {
@@ -568,7 +580,7 @@ export function Reports() {
         <CardBody>
           <DataTable
             columns={philBelfordColumns(handleButtonClick)}
-            data={data}
+            data={philBelfordData}
             persistTableHead
             pagination
           />
