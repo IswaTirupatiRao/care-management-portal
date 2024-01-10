@@ -724,6 +724,9 @@ export function Discharge() {
                   </FormGroup>
                 </Col>
               </Row>
+              <Button className="float-end" color="primary">
+                Save
+              </Button>
             </CardBody>
           </Card>
         </Col>
