@@ -31,6 +31,11 @@ import { Insurence } from "_containers/careManager/insurence";
 import { PatientProfile } from "_containers/careManager/patientProfile ";
 import { AccessControl } from "_containers/careManager/accessControl";
 import { CareCalender } from "_containers/careManager/careCalender";
+import { Assessment } from "_containers/careManager/assessment";
+import { InitialAssessment } from "_containers/careManager/initialAssessment";
+import { RoutineVisit } from "_containers/careManager/routineVisit";
+import { AnnualVisit } from "_containers/careManager/annualVisit";
+import { Discharge } from "_containers/careManager/discharge";
 
 export function App() {
   const authUser = useSelector((state) => state.auth.token);
@@ -166,6 +171,46 @@ export function App() {
             element={
               <PrivateRoute>
                 <PatientProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/assessment"
+            element={
+              <PrivateRoute>
+                <Assessment />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/initial-assessment"
+            element={
+              <PrivateRoute>
+                <InitialAssessment />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/routine-visit"
+            element={
+              <PrivateRoute>
+                <RoutineVisit />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/annual-visit"
+            element={
+              <PrivateRoute>
+                <AnnualVisit />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/discharge"
+            element={
+              <PrivateRoute>
+                <Discharge />
               </PrivateRoute>
             }
           />

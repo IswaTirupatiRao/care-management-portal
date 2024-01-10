@@ -13,22 +13,26 @@ import {
 import { BsEyeSlashFill, BsPencilFill } from "react-icons/bs";
 export function AccessControl() {
   let userMermebersArray = [
-    "Accountant",
     "Admin",
-    "Clinician",
+    "Care manager",
     "Physician",
-    "Receptionist",
-    "TUser",
-    "ZHPortal",
+    "Care coordinator",
+    "Social Worker",
+    "Patient",
   ];
   let groupArray = [
-    "Accounting-view",
-    "Accounting-add-only",
-    "Accounting-wsome",
-    "Accounting-write",
+    "Physician-view",
+    "Physician-add-only",
+    "Physician-wsome",
+    "Physician-write",
     "Administrator-write",
-    "Clinicians-view",
-    "Clinicians-add-only",
+    "Administrator-add-only",
+    "Administrator-wsome",
+    "Administrator-view",
+    "Care-manager-view",
+    "Care-manager-add-only",
+    "Care-manager-wsome",
+    "Care-manager-write",
   ];
   return (
     <>
@@ -58,7 +62,7 @@ export function AccessControl() {
                           <div>
                             <Label>
                               {options}
-                              {options === "Clinician" ||
+                              {options === "Care manager" ||
                               options === "Physician" ? (
                                 <BsEyeSlashFill className="ms-1" />
                               ) : (
@@ -66,7 +70,7 @@ export function AccessControl() {
                               )}
                             </Label>
                           </div>
-                          {options === "Clinician" && (
+                          {options === "Care manager" && (
                             <div className="mb-2">
                               <Row>
                                 <Col md={4} lg={4}>
@@ -77,7 +81,7 @@ export function AccessControl() {
                                     type={"select"}
                                     multiple
                                   >
-                                    <option>Clinician</option>
+                                    <option>Care manager</option>
                                   </Input>
                                   <Button
                                     className="mt-1 float-end"
@@ -94,11 +98,10 @@ export function AccessControl() {
                                     type={"select"}
                                     multiple
                                   >
-                                    <option>Accounting</option>
                                     <option>Administrators</option>
-                                    <option>Emergency login</option>
-                                    <option>Front Office</option>
-                                    <option>Physician</option>
+                                    <option>Care Coordinator</option>
+                                    <option>Social Worker</option>
+                                    <option>Patient</option>
                                   </Input>
                                   <Button className="mt-1" color="alternate">
                                     {"<<"}
@@ -118,7 +121,7 @@ export function AccessControl() {
                                     type={"select"}
                                     multiple
                                   >
-                                    <option>Clinician</option>
+                                    <option>Physician</option>
                                   </Input>
                                   <Button
                                     className="mt-1 float-end"
@@ -135,11 +138,10 @@ export function AccessControl() {
                                     type={"select"}
                                     multiple
                                   >
-                                    <option>Accounting</option>
                                     <option>Administrators</option>
-                                    <option>Emergency login</option>
-                                    <option>Front Office</option>
-                                    <option>Physician</option>
+                                    <option>Care Coordinator</option>
+                                    <option>Social Worker</option>
+                                    <option>Patient</option>
                                   </Input>
                                   <Button className="mt-1" color="alternate">
                                     {"<<"}
@@ -189,13 +191,15 @@ export function AccessControl() {
                                     type={"select"}
                                     multiple
                                   >
-                                    <option>Accounting - Billing</option>
+                                    <option>Care coordinator - Billing</option>
                                     <option>
-                                      Accounting - Price Discounting
+                                      Care coordinator - Price Discounting
                                     </option>
-                                    <option>Accounting - EOB Data Entry</option>
                                     <option>
-                                      Accounting - Financila Reporting
+                                      Care coordinator - EOB Data Entry
+                                    </option>
+                                    <option>
+                                      Care coordinator - Financila Reporting
                                     </option>
                                     <option>
                                       Adminisitration - ACL Administration
