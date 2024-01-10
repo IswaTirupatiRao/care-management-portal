@@ -78,9 +78,7 @@ export function InitialAssessment() {
   let weekData = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return (
     <>
-      <h5 className="ms-1 mb-3">
-        Patient Initial Health Risk Assessment (HRA)
-      </h5>
+      <h5 className="ms-1 mb-3">Patient Initial Assessment (IA)</h5>
       <Row>
         <Col md={12} lg={12}>
           <Card className="mb-2">
@@ -689,6 +687,46 @@ export function InitialAssessment() {
                   </Col>
                 </Row>
               ))}
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Card className="mb-2">
+            <CardBody>
+              <Label className="fw-bold">Progress Notes</Label>
+              <div className="divider mt-1" />
+              <Row>
+                <Col md={3} lg={3}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Note date</Label>
+                    <DatePicker
+                      className="form-control"
+                      selected={scheduledDate}
+                      onChange={(date) => {
+                        setScheduledDate(date);
+                      }}
+                      dateFormat="MM/dd/yyyy"
+                      placeholderText="Notes date"
+                      name={"scheduleDate"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={9} lg={9}>
+                  <FormGroup>
+                    <Label className="fw-semi-bold">Note</Label>
+                    <Input
+                      id={"companyName"}
+                      name={"companyName"}
+                      type={"textarea"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Button className="float-end" color="primary">
+                Save
+              </Button>
             </CardBody>
           </Card>
         </Col>
