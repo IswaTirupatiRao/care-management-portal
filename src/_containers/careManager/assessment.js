@@ -111,12 +111,10 @@ export function Assessment() {
   ];
   return (
     <>
+      <h5 className="ms-1 mb-3">
+        Patient Initial Health Risk Assessment (HRA) & History{" "}
+      </h5>
       <Card>
-        <CardHeader className="card-title-text text-capitalize">
-          <h5 className="fw-bold">
-            Patient Health Risk Assessment (HRA) & History{" "}
-          </h5>
-        </CardHeader>
         <CardBody>
           <Row>
             <Col md={4} lg={4}>
